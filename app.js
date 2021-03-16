@@ -89,6 +89,23 @@ for(let game of warriorsGames){
   const {
     homeTeam,
     awayTeam
-    } = game;
-  console.log(awayTeam.team, homeTeam.team)
+  } = game;
+
+  const gameLi = document.createElement('li');
+  const {
+    team:hTeam,
+    points: hPoints
+  } = homeTeam;
+
+  const {
+    team:aTeam,
+    points: aPoints
+  } = awayTeam;
+  
+  const teamNames = `${aTeam} @ ${hTeam}`;
+  const scoreLine = `${aPoints}-${hPoints}`;
+  gameLi.innerText = `${teamNames} ${scoreLine}`;
+  ulParent.appendChild(gameLi);
 }
+
+document.body.prepend(ulParent)
